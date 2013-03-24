@@ -8,19 +8,17 @@ TPGestureTableView is tableview that provides custom tableViewCell(TPGestureTabl
 
 ##Usage
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *cellIdentifier = @"LomemoBasicCell";
-    TPGestureTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
-        cell = [[[TPGestureTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
-        cell.delegate=self;
-    }
-    TPDataModel *item=(TPDataModel*)[_dataArray objectAtIndex:indexPath.row];
-    cell.itemData=item;
-    return cell;
-}
+  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  static NSString *cellIdentifier = @"LomemoBasicCell";
+  TPGestureTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+  if (cell == nil) {
+  cell = [[[TPGestureTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
+  cell.delegate=self;
+  }
+  TPDataModel *item=(TPDataModel*)[_dataArray objectAtIndex:indexPath.row];
+  cell.itemData=item;
+  return cell;
+  }
 
 And make sure implementing the heightForRowAtIndexPath and didSelectRowAtIndexPath methods to expland the cell
 
